@@ -1,0 +1,142 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html, body {
+    font-family: 'Arial', sans-serif;
+    color: white;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    background-image: url('/BG booking form.jpg'); /* Ensure this path is correct */
+    background-size: cover;
+    background-position: center;
+  }
+  
+  /* Navbar */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    padding: 10px 20px;
+  }
+  
+  .navbar .left-section {
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar .right-section {
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Centered Logo */
+  .navbar .logo {
+    flex-grow: 1;
+    text-align: center;
+  }
+  
+  .navbar img {
+    max-width: 40px;
+    height: auto;
+    border-radius: 10%;
+  }
+  
+  /* Navbar Buttons */
+  .navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+  }
+  
+  .navbar a:hover {
+    background-color: #575757;
+  }
+  
+  /* Mobile Menu */
+  .hamburger-menu {
+    display: none; /* Hidden on larger screens */
+  }
+  
+  @media (max-width: 768px) {
+    .hamburger-menu {
+      display: block; /* Show on smaller screens */
+      position: absolute;
+      left: 10px;
+    }
+  
+    .navbar .logo {
+      position: relative;
+      left: 50%; /* Center the logo */
+      transform: translateX(-50%); /* Adjust for perfect centering */
+    }
+  
+    .navbar .right-section {
+      position: absolute;
+      right: 10px;
+    }
+  }
+  
+  /* Sidebar */
+  .sidebar {
+    background-color: #333;
+    color: white;
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: -250px; /* Hidden by default */
+    transition: left 0.3s;
+  }
+  
+  .sidebar.open {
+    left: 0;
+  }
+  
+  .sidebar a {
+    display: block;
+    padding: 15px;
+    color: white;
+    text-decoration: none;
+  }
+  
+  .sidebar a:hover {
+    background-color: #575757;
+  }
+  
+  /* Booking Form Styling */
+  .booking-form {
+    background-color: white;
+    color: black;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* General Button Styles */
+  button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
