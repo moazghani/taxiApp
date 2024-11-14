@@ -1,12 +1,13 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "lib": ["dom", "es2015"],
     "jsx": "react-jsx",
+    "moduleResolution": "node",
     "esModuleInterop": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true
+    "module": "ESNext",
+    "resolveJsonModule": true,
+    "strict": true
   },
-  "include": ["src", "src/global.d.ts"]
+  "include": [
+    "src/**/*"
+  ]
 }

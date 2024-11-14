@@ -33,7 +33,11 @@ const Login = () => {
         console.log("Login successful");
         navigate("/home");
       } catch (error) {
-        console.error("Error logging in:", error.message);
+        if (error instanceof Error) {
+          console.error("Error logging in:", error.message);
+        } else {
+          console.error("Error logging in:", error);
+        }
         setErrorMessages((prev) => ({ ...prev, email: "Error logging in. Please try again." }));
       }
     }
@@ -47,20 +51,48 @@ const Login = () => {
       console.log("Google login successful", user);
       navigate("/home");
     } catch (error) {
-      console.error("Error logging in with Google:", error.message);
+      if (error instanceof Error) {
+        console.error("Error logging in with Google:", error.message);
+      } else {
+        console.error("Error logging in with Google:", error);
+      }
     }
   };
 
   return (
     <>
       <CssBaseline />
-      <Container maxWidth={false} disableGutters sx={{ position: "relative", backgroundImage: 'url("/login-register page background.jpg")', backgroundSize: "cover", backgroundPosition: "center", height: "100vh", display: "flex", justifyContent: "center", alignItems: "center" }}>
-        <Box sx={{ width: "100%", maxWidth: 600, display: "flex", flexDirection: "column", alignItems: "center", backgroundColor: "rgba(0, 0, 0, 0.8)", borderRadius: 2, padding: 3 }}>
+      <Container
+        maxWidth={false}
+        disableGutters
+        sx={{
+          position: "relative",
+          backgroundImage: 'url("/login-register page background.jpg")',
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          height: "100vh",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <Box
+          sx={{
+            width: "100%",
+            maxWidth: 600,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            backgroundColor: "rgba(0, 0, 0, 0.8)",
+            borderRadius: 2,
+            padding: 3,
+          }}
+        >
           {/* Home icon positioned at the top-left corner */}
           <IconButton component={Link} to="/home" sx={{ position: "absolute", top: 20, left: 20, color: "#ffffff", fontSize: 40 }}>
             <HomeIcon />
           </IconButton>
-          
+
           <Avatar sx={{ m: 1, bgcolor: "primary.main" }}>
             <LockOutlined />
           </Avatar>
@@ -101,23 +133,39 @@ const Login = () => {
                   InputLabelProps={{ style: { color: "#ffffff" } }}
                   InputProps={{
                     style: { color: "#ffffff" },
-                    sx: { "& .MuiOutlinedInput-notchedOutline": { borderColor: "#ffffff" } },
                     endAdornment: (
                       <InputAdornment position="end">
-                        <IconButton aria-label="toggle password visibility" onClick={() => setShowPassword(!showPassword)} edge="end" sx={{ color: "white" }}>
-                          {showPassword ? <Visibility /> : <VisibilityOff />}
+                        <IconButton
+                          aria-label="toggle password visibility"
+                          onClick={() => setShowPassword(!showPassword)}
+                          edge="end"
+                          sx={{ color: "#ffffff" }}
+                        >
+                          {showPassword ? <VisibilityOff /> : <Visibility />}
                         </IconButton>
                       </InputAdornment>
                     ),
+                    sx: { "& .MuiOutlinedInput-notchedOutline": { borderColor: "#ffffff" } },
                   }}
                 />
               </Grid>
             </Grid>
-            <Button fullWidth variant="contained" sx={{ mt: 3, mb: 2, backgroundColor: "#ff9800", color: "#ffffff", "&:hover": { backgroundColor: "#ff6f00" } }} onClick={handleLogin}>
-              Login
+            <Button
+              onClick={handleLogin}
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 2 }}
+            >
+              Sign In
             </Button>
-            <Button fullWidth variant="outlined" sx={{ mt: 2, mb: 2, borderColor: "#ffffff", color: "#ffffff" }} onClick={handleGoogleLogin}>
-              <GoogleIcon sx={{ mr: 1 }} /> Sign in with Google
+            <Button
+              onClick={handleGoogleLogin}
+              fullWidth
+              variant="outlined"
+              startIcon={<GoogleIcon />}
+              sx={{ mb: 2, color: "#ffffff", borderColor: "#ffffff" }}
+            >
+              Sign in with Google
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>

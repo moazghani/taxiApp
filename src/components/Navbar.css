@@ -1,108 +1,118 @@
 /* Navbar */
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    background-color: #333;
-    position: fixed;
-    top: 0;
-    z-index: 1000;
-    padding: 10px 20px;
-  }
-  
-  /* Left section (hamburger menu) */
-  .navbar .left-section {
-    display: flex;
-    align-items: center;
-  }
-  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background-color: #333;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  padding: 10px 20px;
+}
+
+/* Left section (hamburger menu) */
+.navbar .left-section {
+  display: flex;
+  align-items: center;
+}
+
+.hamburger-menu {
+  font-size: 30px;
+  background: none;
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: none; /* Hidden on large screens */
+}
+
+/* Centered Logo */
+.navbar .logo {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.navbar .logo img {
+  max-width: 40px;
+  height: auto;
+}
+
+/* Right section (navigation buttons and login icon) */
+.navbar .right-section {
+  display: flex;
+  align-items: center;
+}
+
+.navbar .right-section .login-icon {
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+}
+
+/* Sidebar */
+.sidebar {
+  background-color: #333;
+  color: white;
+  width: 250px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: -250px; /* Hidden by default */
+  transition: left 0.3s;
+}
+
+.sidebar.open {
+  left: 0;
+}
+
+.sidebar a {
+  display: block;
+  padding: 15px;
+  color: white;
+  text-decoration: none;
+}
+
+.sidebar a:hover {
+  background-color: #575757;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
   .hamburger-menu {
+    display: block; /* Show hamburger menu on small screens */
     font-size: 30px;
-    background: none;
     color: white;
+    background: none;
     border: none;
-    cursor: pointer;
-    display: none; /* Hidden on large screens */
+    position: absolute;
+    left: 10px; /* Move hamburger menu to the left */
   }
-  
-  /* Centered Logo */
+
+  /* Center the logo in mobile view */
   .navbar .logo {
-    flex-grow: 1;
-    text-align: center;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
   }
-  
-  .navbar .logo img {
-    max-width: 40px;
-    height: auto;
+
+  .navbar .right-section {
+    position: absolute;
+    right: 10px;
   }
-  
-  /* Right section (login icon) */
+
+  /* Adjust sidebar */
+  .sidebar {
+    width: 200px; /* Adjust width of sidebar */
+  }
+}
+
+@media (min-width: 769px) {
+  /* Ensure the right section is visible on larger screens */
   .navbar .right-section {
     display: flex;
-    align-items: center;
   }
-  
-  .navbar .right-section .login-icon {
-    color: white;
-    text-decoration: none;
-    padding: 10px 20px;
+
+  .hamburger-menu {
+    display: none; /* Hide hamburger on large screens */
   }
-  
-  /* Sidebar */
-  .sidebar {
-    background-color: #333;
-    color: white;
-    width: 250px;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: -250px; /* Hidden by default */
-    transition: left 0.3s;
-  }
-  
-  .sidebar.open {
-    left: 0;
-  }
-  
-  .sidebar a {
-    display: block;
-    padding: 15px;
-    color: white;
-    text-decoration: none;
-  }
-  
-  .sidebar a:hover {
-    background-color: #575757;
-  }
-  
-  /* Media Queries */
-  @media (max-width: 768px) {
-    .hamburger-menu {
-      display: block; /* Show hamburger menu on small screens */
-      font-size: 30px;
-      color: white;
-      background: none;
-      border: none;
-      position: absolute;
-      left: 10px; /* Move hamburger menu to the left */
-    }
-  
-    /* Center the logo in mobile view */
-    .navbar .logo {
-      position: relative;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-  
-    .navbar .right-section {
-      position: absolute;
-      right: 10px;
-    }
-  
-    /* Adjust sidebar */
-    .sidebar {
-      width: 200px; /* Adjust width of sidebar */
-    }
-  }
-  
+}

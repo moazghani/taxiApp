@@ -4,10 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "start": "react-scripts start",
+    "start": "vite",
     "dev": "vite",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "build": "tsc -b && vite build",
+    "test": "vite test",
     "eject": "react-scripts eject",
     "clean": "rimraf ./build"
   },
@@ -17,10 +17,11 @@
     "@mui/icons-material": "^6.1.6",
     "@mui/material": "^6.1.6",
     "@react-google-maps/api": "^2.20.3",
-    "@types/googlemaps": "^3.43.3",
+    "bootstrap": "^5.3.3",
     "firebase": "^11.0.1",
     "mdb-react-ui-kit": "^9.0.0",
     "react": "^18.3.1",
+    "react-bootstrap": "^2.10.5",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.28.0",
     "react-world-flags": "^1.6.0"

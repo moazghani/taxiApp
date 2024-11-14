@@ -6,7 +6,7 @@ const Home = () => {
   return (
     <div className="home-container">
       <Navbar /> {/* Make sure this is here */}
-      <h1></h1>
+      <h1>Book Your Transfer</h1>
       <BookingForm />
     </div>
   );
