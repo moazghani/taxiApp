@@ -1,14 +1,33 @@
 /* src/index.css */
+
+/* Global resets */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Basic styles for html and body */
 html, body {
   font-family: 'Arial', sans-serif;
-  background-image: url('/BG booking form.jpg');
   background-size: cover;
   background-position: center;
   height: 100%;
+  color: white; /* Global text color */
+}
+
+/* Ensuring the body takes up the full viewport height */
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* Adding some padding to ensure content doesn't touch the edges */
+.home-container {
+  padding-top: 60px; /* Adjust for navbar height */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
 }
